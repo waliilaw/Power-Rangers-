@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import First from './pages/First'
 import Second from "./pages/Second";
-import { Navigate } from "react-router-dom";
 import './App.css'
 
 function App(){
