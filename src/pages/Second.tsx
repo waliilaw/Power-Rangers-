@@ -7,7 +7,7 @@ function Second(){
 
 
     function Redirector(){
-        navigate("/1")
+        navigate("/")
     }
     return(<>
     
