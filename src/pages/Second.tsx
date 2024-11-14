@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import  {useState} from "react";
 import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useNavigate } from "react-router-dom";
