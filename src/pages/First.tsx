@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function First() {
   const { login, register, isAuthenticated, user } = useKindeAuth();
 
-  // Wrapping login and register in a function to avoid type conflict
+
   const handleLogin = () => login();
   const handleRegister = () => register();
   const navigate = useNavigate()
