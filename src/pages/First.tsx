@@ -2,7 +2,7 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useNavigate } from "react-router-dom";
 
 function First() {
-  const { login, register, isAuthenticated, user , logout } = useKindeAuth();
+  const { login, register, isAuthenticated,logout } = useKindeAuth();
 
 
   const handleLogin = () => login();
