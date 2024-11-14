@@ -5,7 +5,10 @@ function First() {
   const { login, register, isAuthenticated,logout } = useKindeAuth();
 
 
-  const handleLogin = () => login();
+  const handleLogin = async () => {
+    await login(); 
+    navigate("/2"); 
+  };
   const handleRegister = () => register();
   const navigate = useNavigate()
   const handleLogout = () => logout()
