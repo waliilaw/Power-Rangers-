@@ -1,24 +1,54 @@
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+import {useState} from "react";
+import { PowerRangers } from "../Rangers/PowerRangers";
+import { hashUsername } from "../logic/hash";
 import { useNavigate } from "react-router-dom";
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 
-function First() {
-  const { login, register, isAuthenticated,logout } = useKindeAuth();
+function First(){
 
+  const [username , setUsername ] = useState("")
+  const [Ranger , setRanger ] = useState(null)
+  const navigate = useNavigate()
+  const { login, isAuthenticated, logout } = useKindeAuth();
 
- const handleLogin = async () => {
+  function getRanger(username: string){
+    const position = hashUsername(username) % PowerRangers.length
+    return PowerRangers[position]
+  }
+
+  function RangerAssigner(): any{
+    const Ranger : any = getRanger(username)
+    setRanger(Ranger)
+    navigate("/3")
+  }
+
+  function toHome() : any {
+    navigate("/1")
+  }
+
+  const handleLogin = async () => {
     await login(); 
     if(isAuthenticated){navigate("/2")}; 
   };
-  
-  const handleRegister = () => register();
-  const navigate = useNavigate()
+
   const handleLogout = () => logout()
 
   function Home(){
     navigate("/2")
   }
-  return (
-    <>
+  
+return(<>
+  
+  <h1>Power Rangers</h1>
+  <input type="text"  placeholder="Enter your username" value ={username} onChange={(e) => setUsername(e.target.value)} />
+  <button onClick={RangerAssigner}>I'm Ready</button> ||||||| 
+  <button onClick={toHome}>Home</button>
+  {Ranger && (<>
+  <h2>Your Ranger : {Ranger}</h2>
+  </>)}
+
+
+  <>
       {isAuthenticated ? (
         <div>
           <h2>Welcome </h2>
@@ -28,16 +58,16 @@ function First() {
         </div>
       ) : (
         <div>
-          <button onClick={handleRegister} type="button">
-            Register
-          </button>
           <button onClick={handleLogin} type="button">
             Log In
           </button>
         </div>
       )}
     </>
-  );
+
+    
+  </>)
+
 }
 
-export default First;
+export default First
