@@ -19,7 +19,7 @@ function First(){
   function RangerAssigner(): any{
     const Ranger : any = getRanger(username)
     setRanger(Ranger)
-    navigate("/3")
+    navigate("/2")
   }
 
   function toHome() : any {
