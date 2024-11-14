@@ -3,6 +3,7 @@ import First from './pages/First'
 import Second from "./pages/Second";
 import Third from "./pages/Third";
 import { Navigate } from "react-router-dom";
+import './App.css
 
 function App(){
 
