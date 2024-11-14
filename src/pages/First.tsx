@@ -19,11 +19,11 @@ function First(){
   function RangerAssigner(): any{
     const Ranger : any = getRanger(username)
     setRanger(Ranger)
-    navigate("/1")
+    navigate("/")
   }
 
   function toHome() : any {
-    navigate("/1")
+    navigate("/")
   }
 
   const handleLogin = async () => {
@@ -34,7 +34,7 @@ function First(){
   const handleLogout = () => logout()
 
   function Home(){
-    navigate("/1")
+    navigate("/")
   }
   
 return(<>
