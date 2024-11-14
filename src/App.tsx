@@ -12,8 +12,7 @@ return(<>
 <div>
 <Routes>
     
-<Route path="/" element={<Navigate to="/1" replace />} />
-<Route path = "/1" element={<First />} />
+<Route path = "/" element={<First />} />
 <Route path = "/2" element={<Second />}/>
 
 </Routes>
