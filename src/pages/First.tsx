@@ -19,7 +19,7 @@ function First(){
   function RangerAssigner(): any{
     const Ranger : any = getRanger(username)
     setRanger(Ranger)
-    navigate("/2")
+    navigate("/1")
   }
 
   function toHome() : any {
@@ -34,7 +34,7 @@ function First(){
   const handleLogout = () => logout()
 
   function Home(){
-    navigate("/2")
+    navigate("/1")
   }
   
 return(<>
