@@ -1,0 +1,179 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  h1, h2 {
+    color: #444;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background-color: #555;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* First Page Styles */
+  #firstPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    margin: 20px;
+  }
+  
+  #firstPageContainer h2 {
+    color: #2b8a3e;
+  }
+  
+  #firstPageContainer p {
+    margin-top: 10px;
+    font-size: 1.2em;
+  }
+  
+  #firstPageContainer button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  #firstPageContainer button:nth-child(2) {
+    background-color: #f44336;
+  }
+  
+  /* Second Page Styles */
+  #secondPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    margin: 20px;
+  }
+  
+  #secondPageContainer h1 {
+    font-size: 2em;
+    color: #d32f2f;
+  }
+  
+  #secondPageContainer input {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1em;
+  }
+  
+  #secondPageContainer button {
+    margin-top: 10px;
+    background-color: #0288d1;
+    color: white;
+  }
+  
+  #secondPageContainer button:nth-child(2) {
+    background-color: #8e24aa;
+  }
+  
+  /* Third Page Styles */
+  #thirdPageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    margin: 20px;
+  }
+  
+  #thirdPageContainer h1 {
+    font-size: 2em;
+    color: #6a1b9a;
+  }
+  
+  #thirdPageContainer button {
+    margin-top: 10px;
+    background-color: #f57c00;
+    color: white;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    #firstPageContainer, #secondPageContainer, #thirdPageContainer {
+      padding: 20px;
+      max-width: 90%;
+    }
+  
+    button {
+      padding: 8px 16px;
+      font-size: 1em;
+    }
+  
+    h1, h2 {
+      font-size: 1.8em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    button {
+      padding: 6px 12px;
+      font-size: 0.9em;
+    }
+  
+    h1, h2 {
+      font-size: 1.5em;
+    }
+  }
+  
+  /* Animation Effects */
+  @keyframes buttonGlow {
+    0% {
+      box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.5);
+    }
+    50% {
+      box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.7);
+    }
+    100% {
+      box-shadow: 0px 0px 5px rgba(0, 255, 0, 0.5);
+    }
+  }
+  
+  button:hover {
+    animation: buttonGlow 1s infinite;
+  }
