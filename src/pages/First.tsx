@@ -3,7 +3,7 @@ import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useNavigate } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import  getUserData from "../api/kinde";  
+import getUserData from "../api/kinde";  // Import the correct function
 
 interface TwitterUser {
   username: string;
@@ -13,7 +13,6 @@ interface TwitterUser {
 }
 
 function First() {
-  const [username, setUsername] = useState("");
   const [Ranger, setRanger] = useState<string | null>(null);
   const [twitterData, setTwitterData] = useState<TwitterUser | null>(null);
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ function First() {
     if (isAuthenticated) {
       const fetchUserData = async () => {
         try {
-          const userData = await getUserData(); // Ensure this method fetches user data
+          const userData = await getUserData(); // Fetch user data
           if (userData) {
             setTwitterData({
               username: userData.twitterUsername || "",
@@ -31,7 +30,10 @@ function First() {
               following: userData.twitterFollowing || 0,
               profilePicture: userData.twitterProfilePicture || "",
             });
-            setUsername(userData.twitterUsername || "");
+
+            // Directly assign ranger based on the username
+            const selectedRanger = getRanger(userData.twitterUsername || "");
+            setRanger(selectedRanger);
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
@@ -46,16 +48,6 @@ function First() {
     return PowerRangers[position];
   }
 
-  function RangerAssigner() {
-    if (username.trim()) {
-      const selectedRanger: any = getRanger(username);
-      setRanger(selectedRanger);
-      navigate("/2");
-    } else {
-      alert("Please enter a username or log in via Twitter");
-    }
-  }
-
   const handleLogin = async () => {
     await login();
   };
@@ -64,7 +56,6 @@ function First() {
     logout();
     setRanger(null);
     setTwitterData(null);
-    setUsername("");
   };
 
   return (
@@ -80,13 +71,6 @@ function First() {
               <p>Following: {twitterData.following}</p>
             </div>
           )}
-          <input
-            type="text"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <button onClick={RangerAssigner}>I'm Ready</button>
           {Ranger && <h2>Your Ranger: {Ranger}</h2>}
           <button onClick={handleLogout}>Log out</button>
         </div>
