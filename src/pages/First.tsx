@@ -14,11 +14,14 @@ interface TwitterUser {
 function First() {
   const [Ranger, setRanger] = useState<string | null>(null);
   const [twitterData, setTwitterData] = useState<TwitterUser | null>(null);
-  const { login, isAuthenticated, logout } = useKindeAuth(); // Removed 'user' here
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+  const { login, isAuthenticated, logout } = useKindeAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
       const fetchUserData = async () => {
+        setIsLoading(true);
         try {
           const userData = await getUserData();
           if (userData) {
@@ -34,6 +37,8 @@ function First() {
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
+        } finally {
+          setIsLoading(false);
         }
       };
       fetchUserData();
@@ -46,7 +51,12 @@ function First() {
   }
 
   const handleLogin = async () => {
-    await login();
+    try {
+      await login();
+      setError("");
+    } catch {
+      setError("Failed to log in. Please try again.");
+    }
   };
 
   const handleLogout = () => {
@@ -59,20 +69,30 @@ function First() {
     <div className="main-container">
       <h1>Power Rangers</h1>
       {isAuthenticated ? (
-        <div>
-          {twitterData && (
-            <div className="profile-section">
-              <img src={twitterData.profilePicture} alt="Profile" />
-              <h3>{twitterData.username}</h3>
-              <p>Followers: {twitterData.followers}</p>
-              <p>Following: {twitterData.following}</p>
-            </div>
-          )}
-          {Ranger && <h2>Your Ranger: {Ranger}</h2>}
-          <button onClick={handleLogout}>Log out</button>
-        </div>
+        isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <div>
+            {twitterData && (
+              <div className="profile-section">
+                <img
+                  src={twitterData.profilePicture || "https://via.placeholder.com/150"}
+                  alt="Profile"
+                />
+                <h3>{twitterData.username}</h3>
+                <p>Followers: {twitterData.followers}</p>
+                <p>Following: {twitterData.following}</p>
+              </div>
+            )}
+            {Ranger && <h2>Your Ranger: {Ranger}</h2>}
+            <button onClick={handleLogout}>Log out</button>
+          </div>
+        )
       ) : (
-        <button onClick={handleLogin}>Log In with Twitter</button>
+        <>
+          {error && <p className="error">{error}</p>}
+          <button onClick={handleLogin}>Log In with Twitter</button>
+        </>
       )}
     </div>
   );
