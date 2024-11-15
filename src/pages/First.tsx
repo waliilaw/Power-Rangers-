@@ -3,7 +3,7 @@ import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useNavigate } from "react-router-dom";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import getUserData from "../api/kinde";  // Import the correct function
+import getUserData from "../api/kinde"; 
 
 interface TwitterUser {
   username: string;
@@ -32,7 +32,7 @@ function First() {
             });
 
             // Directly assign ranger based on the username
-            const selectedRanger = getRanger(userData.twitterUsername || "");
+            const selectedRanger : any= getRanger(userData.twitterUsername || "");
             setRanger(selectedRanger);
           }
         } catch (error) {
