@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import getUserData from "../api/kinde";  
+import getUserData from "../api/kinde";
 
 interface TwitterUser {
   username: string;
@@ -14,7 +14,7 @@ interface TwitterUser {
 function First() {
   const [Ranger, setRanger] = useState<string | null>(null);
   const [twitterData, setTwitterData] = useState<TwitterUser | null>(null);
-  const { login, isAuthenticated, logout } = useKindeAuth();
+  const { login, isAuthenticated, logout } = useKindeAuth(); // Removed 'user' here
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -29,8 +29,7 @@ function First() {
               profilePicture: userData.twitterProfilePicture || "",
             });
 
-
-            const selectedRanger : any= getRanger(userData.twitterUsername || "");
+            const selectedRanger: any = getRanger(userData.twitterUsername || "");
             setRanger(selectedRanger);
           }
         } catch (error) {
