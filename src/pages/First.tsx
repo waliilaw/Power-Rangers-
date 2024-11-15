@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import getUserData from "../api/kinde"; 
+import getUserData from "../api/kinde";  
 
 interface TwitterUser {
   username: string;
@@ -20,7 +20,7 @@ function First() {
     if (isAuthenticated) {
       const fetchUserData = async () => {
         try {
-          const userData = await getUserData(); // Fetch user data
+          const userData = await getUserData();
           if (userData) {
             setTwitterData({
               username: userData.twitterUsername || "",
@@ -29,7 +29,7 @@ function First() {
               profilePicture: userData.twitterProfilePicture || "",
             });
 
-            // Directly assign ranger based on the username
+
             const selectedRanger : any= getRanger(userData.twitterUsername || "");
             setRanger(selectedRanger);
           }
