@@ -1,5 +1,3 @@
-
-
 async function getUserData() {
     const token = localStorage.getItem("kinde_token");
     if (!token) {
@@ -26,5 +24,5 @@ async function getUserData() {
       throw new Error(`Failed to fetch user data: ${response.status} ${errorText}`);
     }
   }
-
-  export default getUserData
+  
+  export default getUserData;
