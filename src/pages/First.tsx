@@ -3,6 +3,7 @@ import { PowerRangers } from "../Rangers/PowerRangers";
 import { hashUsername } from "../logic/hash";
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import getUserData from "../api/kinde";
+import { useNavigate } from "react-router-dom";
 
 interface TwitterUser {
   username: string;
@@ -17,6 +18,7 @@ function First() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const { login, isAuthenticated, logout } = useKindeAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -37,6 +39,7 @@ function First() {
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
+          setError("Error fetching user data. Please try again.");
         } finally {
           setIsLoading(false);
         }
@@ -67,12 +70,14 @@ function First() {
 
   return (
     <div className="main-container">
+      <button onClick={() => navigate("/2")}>Take me to page two</button>
       <h1>Power Rangers</h1>
       {isAuthenticated ? (
         isLoading ? (
           <p>Loading...</p>
         ) : (
           <div>
+            {error && <p className="error">{error}</p>}
             {twitterData && (
               <div className="profile-section">
                 <img
