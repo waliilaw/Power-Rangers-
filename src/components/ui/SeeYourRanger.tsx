@@ -24,8 +24,8 @@ function SeeYourRanger() {
         Open Drawer
       </button>
 
-      {/* Buttons to set border color */}
-      <div className="mb-4 flex space-x-4">
+      {/* Buttons to set border color (Updated to be vertical) */}
+      <div className="mb-4 flex flex-col space-y-4"> {/* Change here to `flex-col` and `space-y-4` */}
         <button
           onClick={() => setRangerColor('red')}
           className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white text-lg"
