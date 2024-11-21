@@ -73,7 +73,9 @@ function First() {
       ) : (
         <div>
           <h1>Please log in</h1>
-          <button onClick={Login}>Login</button>
+          <button onClick={Login} className="login-btn">
+            Login
+          </button>
         </div>
       )}
 
