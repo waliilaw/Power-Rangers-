@@ -1,97 +1,85 @@
-/* Reset and basic setup */
+/* General Reset and Responsive Typography */
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    color: #fff;
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .container {
-    position: relative;
-    text-align: center;
-  }
-  
-  /* Button Styling */
-  button {
-    background-color: var(--red);
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  button:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
-  }
-  
-  button:active {
-    transform: scale(0.95);
-  }
-  
-  /* Open Drawer Button Styling */
-  .open-drawer-btn {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 20px;
-  }
-  
-  /* Drawer Overlay */
-  .drawer-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-  }
-  
-  /* Drawer Content */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Buttons */
+button {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Drawer Overlay */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+/* Drawer Content */
+.drawer-content {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 90%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out;
+  z-index: 1100;
+}
+
+.drawer-content.drawer-open {
+  transform: translateX(0);
+}
+
+.close-drawer-btn {
+  margin-top: 10px;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
   .drawer-content {
-    position: fixed;
-    top: 0;
-    left: -100%; /* Initially off-screen */
-    width: 70%;
-    height: 100%;
-    background-color: black;
-    color: white;
-    padding: 20px;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1100;
+    width: 100%;
   }
-  
-  .drawer-content.drawer-open {
-    transform: translateX(100%); /* Slide in the drawer */
+
+  .container {
+    padding: 5px;
   }
-  
-  /* Close Drawer Button */
-  .close-drawer-btn {
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  /* Make the drawer look better on smaller screens */
-  @media (max-width: 768px) {
-    .drawer-content {
-      width: 80%;
-    }
-  }
+}
