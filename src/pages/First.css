@@ -20,11 +20,15 @@ body, html {
   box-sizing: border-box;
   max-width: 100%; /* Prevent container from exceeding screen width */
   overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 10px; /* Add spacing between buttons */
 }
 
 /* Buttons */
 button {
-  max-width: 100%;
+  width: 100%; /* Make buttons stretch to container width */
+  max-width: 300px; /* Limit maximum width */
   word-wrap: break-word;
   padding: 10px;
   font-size: 1rem;
@@ -34,6 +38,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+  margin: 0 auto; /* Center buttons */
 }
 
 button:hover {
