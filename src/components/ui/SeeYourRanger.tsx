@@ -1,31 +1,27 @@
-"use client";
-
 import { useState } from "react";
 import { Drawer, DrawerTrigger, DrawerContent, DrawerHeader } from "@/components/ui/drawer";
 
 function SeeYourRanger() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const [borderColor, setBorderColor] = useState<'red' | 'blue' | 'yellow' | 'green' | 'white'>('white'); // Default border color is white
-  const [rangerName, setRangerName] = useState("Your Ranger Name"); // Easily changeable text
+  const [borderColor, setBorderColor] = useState<'red' | 'blue' | 'yellow' | 'green' | 'white'>('white');
+  const [rangerName, setRangerName] = useState("Your Ranger Name");
 
-  // Function to set border color based on the selected ranger color
   const setRangerColor = (color: 'red' | 'blue' | 'yellow' | 'green' | 'white') => {
     setBorderColor(color);
-    setRangerName(`${color.charAt(0).toUpperCase() + color.slice(1)} Ranger`); // Update ranger name dynamically
+    setRangerName(`${color.charAt(0).toUpperCase() + color.slice(1)} Ranger`);
   };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-black text-white">
-      {/* Button to open the drawer */}
       <button
         onClick={() => setDrawerOpen(true)}
-        className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white text-lg font-semibold mb-4"
+        className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white text-lg mb-4"
       >
         Open Drawer
       </button>
 
-      {/* Buttons to set border color (Updated to be vertical) */}
-      <div className="mb-4 flex flex-col space-y-4"> {/* Change here to `flex-col` and `space-y-4` */}
+      {/* Buttons for ranger colors */}
+      <div className="flex flex-col items-center space-y-4 mb-4"> {/* Ensuring vertical alignment */}
         <button
           onClick={() => setRangerColor('red')}
           className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white text-lg"
