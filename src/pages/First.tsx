@@ -6,7 +6,7 @@ import { useState } from "react";
 function First() {
   const [isLoading, setIsLoading] = useState(false);
   const { isAuthenticated, login, logout } = useKindeAuth();
-  const [isDrawerOpen, setDrawerOpen] = useState(false);
+  const [, setDrawerOpen] = useState(false);
 
   const Login = async () => {
     setIsLoading(true);
