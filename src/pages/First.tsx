@@ -6,7 +6,6 @@ import { useState } from "react";
 function First() {
   const [isLoading, setIsLoading] = useState(false);
   const { isAuthenticated, login, logout } = useKindeAuth();
-
   const [isDrawerOpen, setDrawerOpen] = useState(false);
 
   const Login = async () => {
@@ -43,41 +42,28 @@ function First() {
     <div className="container">
       <button
         onClick={() => setDrawerOpen(true)}
-        className="open-drawer-btn"
+        className="button open-drawer"
       >
         Open Drawer
       </button>
 
-      {/* Drawer overlay */}
-      {isDrawerOpen && (
-        <div className="drawer-overlay" onClick={() => setDrawerOpen(false)}></div>
-      )}
-
-      {/* Drawer content */}
-      <div className={`drawer-content ${isDrawerOpen ? "drawer-open" : ""}`}>
-        <h2>Drawer Content</h2>
-        <p>This is the content inside the drawer.</p>
-        <button 
-          onClick={() => setDrawerOpen(false)} 
-          className="close-drawer-btn"
-        >
-          Close Drawer
-        </button>
+      <div className="button-container flex flex-col items-center space-y-4"> {/* Flex container for vertical stacking */}
+        {isAuthenticated ? (
+          <div>
+            <h1>Welcome back!</h1>
+            <button onClick={Logout} className="button logout-btn">
+              Logout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <h1>Please log in</h1>
+            <button onClick={Login} className="button login-btn">
+              Login
+            </button>
+          </div>
+        )}
       </div>
-
-      {isAuthenticated ? (
-        <div>
-          <h1>Welcome back!</h1>
-          <button onClick={Logout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <h1>Please log in</h1>
-          <button onClick={Login} className="login-btn">
-            Login
-          </button>
-        </div>
-      )}
 
       <SeeYourRanger />
     </div>
