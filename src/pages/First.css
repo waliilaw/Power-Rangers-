@@ -49,6 +49,12 @@ button:active {
   transform: scale(0.95);
 }
 
+/* Login Button Specific */
+.login-btn {
+  background: #0066cc;
+  color: white;
+}
+
 /* Drawer Overlay */
 .drawer-overlay {
   position: fixed;
