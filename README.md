@@ -5,11 +5,11 @@
 
 <h4>KINDE - Use Kinde’s APIs to fetch user details after login (e.g username, profile_image_url)</h4>
 
->Hashing - By applying a hashing function to user-specific data like username or user ID, you can ensure each user is consistently assigned a unique Power Ranger. This approach avoids duplicate Rangers problem.
+<h4>Hashing - By applying a hashing function to user-specific data like username or user ID, you can ensure each user is consistently assigned a unique Power Ranger. This approach avoids duplicate Rangers problem.</h4>
 
->Twitter API - Use Twitter’s API to allow users to fetch their profile details (e.g., username, profile picture) by entering their X username. This information can be used to assign a Ranger to the user.
+<h4>Twitter API - Use Twitter’s API to allow users to fetch their profile details (e.g., username, profile picture) by entering their X username. This information can be used to assign a Ranger to the user.</h4>
 
->Stacks used :
+# Stacks used :
 ><p align="center">
   <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
@@ -18,9 +18,9 @@
 </p>  
 
 # FUTURE ADDITIONS 
-> User can enter their X usernmae and get a ranger
-OR
-> They can login via Kinde & Participate in voting 
+<h4>User can enter their X usernmae and get a ranger</h4>
+<h3>OR</h3>
+<h4>They can login via Kinde & Participate in voting</h4> 
 
 
 
