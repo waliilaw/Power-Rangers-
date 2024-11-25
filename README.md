@@ -15,10 +15,10 @@
   <img src="https://img.shields.io/badge/ShadCN_UI-%236B46C1.svg?style=for-the-badge&logo=react&logoColor=white" alt="ShadCN UI" />
 </p>  
 
-
-
-
 # FUTURE ADDITIONS 
 > User can enter their X usernmae and get a ranger
 OR
 > They can login via Kinde & Participate in voting 
+
+
+![Power Rangers](https://github.com/user-attachments/assets/0972c400-c10c-4a5b-8bf1-2364d80a4fa3)
