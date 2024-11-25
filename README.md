@@ -3,7 +3,7 @@
 
 # Project Info : 
 
->KINDE - Use Kinde’s APIs to fetch user details after login (e.g username, profile_image_url)
+<h4>KINDE - Use Kinde’s APIs to fetch user details after login (e.g username, profile_image_url)</h4>
 
 >Hashing - By applying a hashing function to user-specific data like username or user ID, you can ensure each user is consistently assigned a unique Power Ranger. This approach avoids duplicate Rangers problem.
 
