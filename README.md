@@ -7,6 +7,8 @@
 
 >Hashing - By applying a hashing function to user-specific data like username or user ID, you can ensure each user is consistently assigned a unique Power Ranger. This approach avoids duplicate Rangers problem.
 
+>Twitter API - Use Twitter’s API to allow users to fetch their profile details (e.g., username, profile picture) by entering their X username. This information can be used to assign a Ranger to the user.
+
 >Stacks used :
 ><p align="center">
   <img src="https://img.shields.io/badge/TypeScript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
@@ -21,4 +23,5 @@ OR
 > They can login via Kinde & Participate in voting 
 
 
-![Power Rangers](https://github.com/user-attachments/assets/0972c400-c10c-4a5b-8bf1-2364d80a4fa3)
+
+![Power Rangers-3](https://github.com/user-attachments/assets/c9181dad-cd1d-4e03-8717-61313166f6df)
