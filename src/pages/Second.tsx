@@ -16,7 +16,7 @@ export function Second({ onLogin, onLogout }: SecondProps): JSX.Element {
       <div className="button-container flex flex-col items-center space-y-4">
         {isAuthenticated ? (
           <div>
-            <h1>Welcome back!</h1>
+            <h1></h1>
             <button onClick={onLogout} className="button logout-btn">
               Logout
             </button>
@@ -30,7 +30,7 @@ export function Second({ onLogin, onLogout }: SecondProps): JSX.Element {
           </div>
         ) : (
           <div>
-            <h1>Please log in</h1>
+
             <button onClick={onLogin} className="button login-btn">
               Login
             </button>
