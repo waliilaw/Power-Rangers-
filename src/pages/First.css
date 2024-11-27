@@ -29,35 +29,36 @@ body, html {
 
 /* Button Container */
 .button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space buttons evenly */
-  width: 100%;
-  justify-content: center; /* Center buttons vertically */
-  align-items: center; /* Center buttons horizontally */
+  position: fixed;
+  bottom: 20px; /* Adjust for spacing from bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
 }
 
-/* Buttons */
-button {
-  width: 100%; /* Stretch buttons to container width */
-  max-width: 300px; /* Limit maximum width of buttons */
-  padding: 10px;
-  font-size: 1rem;
-  background: #333;
-  color: white;
+/* Style for the login button */
+.login-btn {
+  background-color: #000000; /* Matte black */
+  color: #ffffff; /* White text */
+  padding: 10px 20px;
+  font-size: 10px;
+  font-weight: bold; /* Makes the font bold */
   border: none;
-  border-radius: 5px;
+  border-radius: 25%;
   cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-  margin: 0 auto; /* Center buttons */
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-button:hover {
-  transform: scale(1.05);
+/* Hover effect for dark red shadow */
+.login-btn:hover {
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.8); /* Super dark red shadow */
+  transform: scale(1.05); /* Slightly enlarges the button */
 }
 
-button:active {
-  transform: scale(0.95);
+/* Prevent focus outline */
+.login-btn:focus {
+  outline: none;
 }
 
 /* Drawer Overlay */
@@ -114,11 +115,6 @@ button:active {
     padding: 10px;
     width: 100%;
     max-width: 90%; /* Limit container width for small screens */
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 8px;
   }
 
   .drawer-content {
