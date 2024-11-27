@@ -6,7 +6,7 @@ import Tryi from './Front/try';
 // import Three from './Three';
 
 function First() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, ] = useState(false);
   // const { login, logout } = useKindeAuth();
 
   // async function Login() {
