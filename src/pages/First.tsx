@@ -9,28 +9,28 @@ function First() {
   const [isLoading, setIsLoading] = useState(false);
   const { login, logout } = useKindeAuth();
 
-  async function Login() {
-    setIsLoading(true);
-    try {
-      await login();
-    } catch (error) {
-      console.error("Login failed", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  // async function Login() {
+  //   setIsLoading(true);
+  //   try {
+  //     await login();
+  //   } catch (error) {
+  //     console.error("Login failed", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // }
 
-  async function Logout() {
-    setIsLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    try {
-      await logout();
-    } catch (error) {
-      console.error("Logout failed", error);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  // async function Logout() {
+  //   setIsLoading(true);
+  //   await new Promise((resolve) => setTimeout(resolve, 1000));
+  //   try {
+  //     await logout();
+  //   } catch (error) {
+  //     console.error("Logout failed", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // }
 
   if (isLoading) {
     return (
