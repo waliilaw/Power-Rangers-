@@ -6,7 +6,7 @@ import { Second } from './Second';
 // import Three from './Three';
 
 function First() {
-  const [isLoading, setIsLoading] = useState(false);
+const [isLoading, setIsLoading] = useState(false);
   const { login, logout } = useKindeAuth();
 
   async function Login() {
