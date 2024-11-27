@@ -19,6 +19,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100vh; /* Ensure the body takes full height */
 }
 
 .content {
@@ -28,6 +29,8 @@ body {
   position: relative;
   width: 90vmin;
   letter-spacing: 0.2vmin; /* Increase letter spacing */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  box-sizing: border-box;
 }
 
 .content div {
@@ -138,13 +141,14 @@ body {
 .down-5 {
   animation-name: go-down-5;
 }
+
 @keyframes show-hide {
-    0%,
-    100% {
-      opacity: 0;
-    }
-    20%,
-    80% {
-      opacity: 1;
-    }
-  } 
+  0%,
+  100% {
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 1;
+  }
+}
