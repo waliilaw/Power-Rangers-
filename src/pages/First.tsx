@@ -1,5 +1,5 @@
 import './First.css';
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
+// import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useState } from "react";
 import Tryi from './Front/try';
 // import { Second } from './Second';
@@ -7,7 +7,7 @@ import Tryi from './Front/try';
 
 function First() {
   const [isLoading, setIsLoading] = useState(false);
-  const { login, logout } = useKindeAuth();
+  // const { login, logout } = useKindeAuth();
 
   // async function Login() {
   //   setIsLoading(true);
