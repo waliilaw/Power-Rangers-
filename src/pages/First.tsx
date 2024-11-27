@@ -1,8 +1,9 @@
 import './First.css';
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useState } from "react";
-import { Second } from './Second';
-import Three from './Three';
+import Tryi from './Front/try';
+// import { Second } from './Second';
+// import Three from './Three';
 
 function First() {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,8 +42,9 @@ function First() {
 
   return (
     <div className="container">
-      <Three />
-      <Second onLogin={Login} onLogout={Logout} />
+      <Tryi />
+      {/* <Three /> */}
+      {/* <Second onLogin={Login} onLogout={Logout} /> */}
     </div>
   );
 }
