@@ -19,54 +19,54 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Ensure the body takes full height */
 }
 
 .content {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%; /* Full width for responsive centering */
-  height: 100%; /* Ensure full height to center */
+  position: relative;
+  width: 90vmin;
   letter-spacing: 0.2vmin; /* Increase letter spacing */
-  box-sizing: border-box;
-  position: relative; /* Ensure it can center content inside */
 }
 
 .content div {
+  position: absolute;
   display: flex;
-  justify-content: center;
-  align-items: center;
   animation: show-hide var(--sp) ease 0s infinite;
   mix-blend-mode: plus-lighter;
-  position: static; /* Remove absolute positioning */
 }
 
 @keyframes show-hide {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
     transform: scale(0.8);
   }
-  20%, 80% {
+  20%,
+  80% {
     opacity: 1;
     transform: scale(1);
   }
 }
 
 .content div span {
+  width: 10vmin;
+  position: relative;
   text-align: center;
+  box-sizing: border-box;
   color: #ffffff90;
   text-shadow: 0 0 1px var(--white);
 }
 
-/* Ensure the word "rangers" stays in the center */
 .up:before,
 .down:before {
-  content: "";
-  position: absolute;
   width: 80%;
   height: 0.1vmin;
   background: radial-gradient(ellipse at 50% 50%, var(--white), #ffffff00 70%);
+  content: "";
+  position: absolute;
+  border-radius: 100%;
   filter: blur(2px);
   left: 10%;
   top: 49%;
@@ -84,10 +84,14 @@ body {
 }
 
 @keyframes shadow {
-  0%, 10%, 90%, 100% {
+  0%,
+  10%,
+  90%,
+  100% {
     opacity: 0;
   }
-  45%, 55% {
+  45%,
+  55% {
     opacity: 0.25;
     height: 0.25vmin;
   }
@@ -97,16 +101,50 @@ body {
 .down span {
   animation-duration: var(--sp);
   animation-timing-function: ease;
+  animation-delay: 0s;
   animation-iteration-count: infinite;
 }
 
-/* Add media queries for better responsiveness */
-@media (max-width: 600px) {
-  body {
-    font-size: 5vmin; /* Adjust font size on mobile */
-  }
-
-  .content {
-    width: 95%; /* Adjust width for small screens */
-  }
+/*up*/
+.up-2-8 {
+  animation-name: go-up-2-8;
 }
+
+.up-3-7 {
+  animation-name: go-up-3-7;
+}
+
+.up-4-6 {
+  animation-name: go-up-4-6;
+}
+
+.up-5 {
+  animation-name: go-up-5;
+}
+
+/*down*/
+.down-2-8 {
+  animation-name: go-down-2-8;
+}
+
+.down-3-7 {
+  animation-name: go-down-3-7;
+}
+
+.down-4-6 {
+  animation-name: go-down-4-6;
+}
+
+.down-5 {
+  animation-name: go-down-5;
+}
+@keyframes show-hide {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    20%,
+    80% {
+      opacity: 1;
+    }
+  } 
