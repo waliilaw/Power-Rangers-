@@ -3,7 +3,6 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useState } from "react";
 import { Second } from './Second';
 import FaceIcon from '@mui/icons-material/Face';
-import { Progress } from "@/components/ui/progress"
 
 // import Three from './Three';
 
@@ -44,7 +43,6 @@ function First() {
 if (isLoading) {
     return (
       <div className="loading-container">
-        <Progress value={33} />
         <img src="/asta.gif" alt="Loading..." />
       </div>
     );
