@@ -3,6 +3,8 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useState } from "react";
 import Tryi from './Front/try';
 import { Second } from './Second';
+import FaceIcon from '@mui/icons-material/Face';
+
 // import Three from './Three';
 
 function First() {
@@ -33,6 +35,10 @@ function First() {
     }
   }
 
+  function profile(){
+    alert("Login first")
+  }
+
 // Loading Image is asta gif 
   
 if (isLoading) {
@@ -43,12 +49,16 @@ if (isLoading) {
     );
   }
  
-  return (
+  return (<>
+    <div className="header">
+    <FaceIcon className="face-icon" onClick={profile} />
+</div>
+
     <div className="container">
       <Tryi />
       <Second onLogin={Login} onLogout={Logout} />
     </div>
-  );
+  </>);
 }
 
 export default First;

@@ -16,6 +16,11 @@ export function Second({ onLogin, onLogout }: SecondProps): JSX.Element {
       <div className="button-container flex flex-col items-center space-y-4">
         {isAuthenticated ? (
           <div>
+            <img
+              src="/rangers.png"
+              alt="Ranger"
+              className="w-32 h-32 rounded-full object-cover"
+            />
             <h1></h1>
             <button onClick={onLogout} className="button logout-btn">
               Logout
