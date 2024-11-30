@@ -1,9 +1,9 @@
 import './First.css';
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useState } from "react";
-import Tryi from './Front/try';
 import { Second } from './Second';
 import FaceIcon from '@mui/icons-material/Face';
+import { Progress } from "@/components/ui/progress"
 
 // import Three from './Three';
 
@@ -44,6 +44,7 @@ function First() {
 if (isLoading) {
     return (
       <div className="loading-container">
+        <Progress value={33} />
         <img src="/asta.gif" alt="Loading..." />
       </div>
     );
@@ -55,9 +56,29 @@ if (isLoading) {
 </div>
 
     <div className="container">
-      <Tryi />
       <Second onLogin={Login} onLogout={Logout} />
     </div>
+
+    <div className="content">
+        <div className="up">
+          <span className="up-0">R</span>
+          <span className="up-2-8">A</span>
+          <span className="up-3-7">N</span>
+          <span className="up-4-6">G</span>
+          <span className="up-5">E</span>
+          <span className="up-4-6">R</span>
+          <span className="up-3-7">S</span>
+        </div>
+        <div className="down">
+          <span className="down-0">R</span>
+          <span className="down-2-8">A</span>
+          <span className="down-3-7">N</span>
+          <span className="down-4-6">G</span>
+          <span className="down-5">E</span>
+          <span className="down-4-6">R</span>
+          <span className="down-3-7">S</span>
+        </div>
+      </div>
   </>);
 }
 
