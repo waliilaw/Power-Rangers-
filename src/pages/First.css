@@ -145,13 +145,15 @@ body, html {
   left: 0;
   width: 100%;
   height: 60px;
-
-  padding: 10px;
+  padding: 5px;
 
 }
 
 .face-icon {
+  background-color: #000;
   color: #ffffff; /* Material UI blue */
   font-size: 190px; /* Increased size */
   cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5px;
 }
