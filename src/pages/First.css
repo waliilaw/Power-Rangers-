@@ -157,3 +157,157 @@ body, html {
   border-radius: 50%;
   padding: 1.5px;
 }
+
+
+/* Baground red css */
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap");
+
+:root {
+  --sp: 12s;
+  --white: #ffffff;
+  --dark-red: #8b0000;
+}
+
+body {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+  font-size: 3vmin;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #203a43;
+  background: radial-gradient(ellipse at 50% 50%, #8b0000 0%, #550000 100%); /* Dark red gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 90vmin;
+  letter-spacing: 0.2vmin; /* Increase letter spacing */
+}
+
+.content div {
+  position: absolute;
+  display: flex;
+  animation: show-hide var(--sp) ease 0s infinite;
+  mix-blend-mode: plus-lighter;
+}
+
+@keyframes show-hide {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  20%,
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.content div span {
+  width: 10vmin;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+  color: #ffffff90;
+  text-shadow: 0 0 1px var(--white);
+}
+
+.up:before,
+.down:before {
+  width: 80%;
+  height: 0.1vmin;
+  background: radial-gradient(ellipse at 50% 50%, var(--white), #ffffff00 70%);
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  filter: blur(2px);
+  left: 10%;
+  top: 49%;
+  box-shadow: 0 0 100px 0 var(--white);
+  animation: shadow var(--sp) ease 0s infinite;
+}
+
+.down:before {
+  width: 1vmin;
+  height: 0.5vmin;
+  filter: blur(3px);
+  left: calc(50% - 0.5vmin);
+  top: 45%;
+  box-shadow: 0 0 10px 0 var(--white);
+}
+
+@keyframes shadow {
+  0%,
+  10%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  55% {
+    opacity: 0.25;
+    height: 0.25vmin;
+  }
+}
+
+.up span,
+.down span {
+  animation-duration: var(--sp);
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+}
+
+/*up*/
+.up-2-8 {
+  animation-name: go-up-2-8;
+}
+
+.up-3-7 {
+  animation-name: go-up-3-7;
+}
+
+.up-4-6 {
+  animation-name: go-up-4-6;
+}
+
+.up-5 {
+  animation-name: go-up-5;
+}
+
+/*down*/
+.down-2-8 {
+  animation-name: go-down-2-8;
+}
+
+.down-3-7 {
+  animation-name: go-down-3-7;
+}
+
+.down-4-6 {
+  animation-name: go-down-4-6;
+}
+
+.down-5 {
+  animation-name: go-down-5;
+}
+@keyframes show-hide {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    20%,
+    80% {
+      opacity: 1;
+    }
+  } 
