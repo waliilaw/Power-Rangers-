@@ -9,6 +9,8 @@ function First() {
   const [isLoading, setIsLoading] = useState(false);
   const { login, logout } = useKindeAuth();
 
+// Login Logout logic is here (collapsed)
+
   async function Login() {
     setIsLoading(true);
     try {
@@ -19,7 +21,6 @@ function First() {
       setIsLoading(false);
     }
   }
-
   async function Logout() {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -32,18 +33,19 @@ function First() {
     }
   }
 
-  if (isLoading) {
+// Loading Image is asta gif 
+  
+if (isLoading) {
     return (
       <div className="loading-container">
         <img src="/asta.gif" alt="Loading..." />
       </div>
     );
   }
-
+ 
   return (
     <div className="container">
       <Tryi />
-      {/* <Three /> */}
       <Second onLogin={Login} onLogout={Logout} />
     </div>
   );
