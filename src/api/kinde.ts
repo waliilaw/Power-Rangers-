@@ -3,7 +3,7 @@ async function getUserData() {
   if (!token) {
     throw new Error("Authentication token not found. Please log in.");
   }
-  const response = await fetch("https://rangers.kinde.com/api/v1/users/me", {
+  const response = await fetch("https://testforrangers.kinde.com/api/v1/users/me", {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

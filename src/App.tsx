@@ -10,7 +10,6 @@ function App() {
         <div>
     <Routes>
             <Route path="/" element={<First />} />
-
     </Routes>
         </div>
       </Router>
