@@ -1,0 +1,27 @@
+html, body {
+    font-family: 'Roboto Mono', monospace;
+
+    height: 100%;
+    margin: 0;
+  }
+  
+  .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .text {
+    font-weight: 100;
+    font-size: 18px;
+    color: #FAFAFA;
+    position: fixed;
+    bottom: 200px;
+    left: 40px;
+  }
+  
+  .dud {
+    color: #757575;
+  }
