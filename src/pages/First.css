@@ -311,3 +311,32 @@ body {
       opacity: 1;
     }
   } 
+/* First.css */
+
+.user-info img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover; /* Ensures the image scales properly without distortion */
+  border: 2px solid #ddd; /* Optional: Add a border for better aesthetics */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.loading-container img {
+  display: block;
+  margin: 0 auto;
+}
+
+.header .face-icon {
+  cursor: pointer;
+  color: #333;
+  font-size: 24px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
