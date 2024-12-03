@@ -79,7 +79,7 @@ if (isLoading) {
           <div className="user-info">
             <h2>Welcome, {user?.given_name || user?.email}</h2> {/* Username */}
             {user?.picture && (
-              <img src={user.picture} alt="Profile" width="100" height="100" />
+              <img src={user.picture} alt="Profile" width="100" height="100" className="profile-pic" />
             )}
           </div>
         ) : (
