@@ -3,7 +3,7 @@ import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
 import { useEffect, useState } from "react";
 import { Second } from './Second';
 import FaceIcon from '@mui/icons-material/Face';
-import { Footer } from './Feet/Footer';
+// import { Footer } from './Feet/Footer';
 // import Three from './Three';
 
 function First() {
@@ -89,7 +89,7 @@ if (isLoading) {
         {/* Show Ranger Image if available */}
         {rangerImage && <img src={rangerImage} alt="Ranger" />}
 
-        <Footer />
+{/*         <Footer /> */}
       </div>
 
       {user && (
