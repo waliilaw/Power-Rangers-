@@ -1,17 +1,14 @@
-import './First.css';
-import { useKindeAuth } from "@kinde-oss/kinde-auth-react";
-import { useEffect, useState } from "react";
-import { Second } from './Second';
-import FaceIcon from '@mui/icons-material/Face';
-// import { Footer } from './Feet/Footer';
-// import Three from './Three';
+import './First.css'
+import { useKindeAuth } from "@kinde-oss/kinde-auth-react"
+import { useEffect, useState } from "react"
+import { Second } from './Second'
+import FaceIcon from '@mui/icons-material/Face'
+import React from 'react'
 
 function First() {
-  const { login, logout, user , isAuthenticated } = useKindeAuth();
-  const [rangerImage, setRangerImage] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-// Login Logout logic is here brother
+  const { login, logout, user, isAuthenticated } = useKindeAuth()
+  const [isLoading, setIsLoading] = useState(false)
+  const [ranger, setRanger] = useState<{ rangerImageUrl: string, rangerClass: string } | null>(null)
 
   async function Login() {
     setIsLoading(true)
@@ -23,9 +20,10 @@ function First() {
       setIsLoading(false)
     }
   }
+
   async function Logout() {
     setIsLoading(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise(resolve => setTimeout(resolve, 1000))
     try {
       await logout()
     } catch (error) {
@@ -35,39 +33,30 @@ function First() {
     }
   }
 
-  function profile(){alert("Login first")}
+  function profile() {
+    alert("Login first")
+  }
 
-// Fetching part from kinde is here 
+  useEffect(() => {
+    async function fetchRanger() {
+      if (user) {
+        const userName = user?.given_name || user?.email // Identifier
+        const response = await fetch(`https://redranger.up.railway.app/assign-ranger?userIdentifier=${userName}`)
+        const data = await response.json()
+        setRanger(data)
+      }
+    }
+    if (user) fetchRanger()
+  }, [user])
 
-async function fetchRangerImage(identifier: string){
-
-  if (!identifier) return; 
-  const serverUrl = process.env.REACT_APP_SERVER_URL 
-  const response = await fetch(`${serverUrl}/ranger/${identifier}`);
-  const data = await response.json();
-  setRangerImage(data.rangerImageUrl);
-
-};
-// On user login, fetch the ranger image
-
-useEffect(() => {
-  if (user) {
-    const identifier = user?.email || user?.id;
-    if (identifier) {
-      fetchRangerImage(identifier);
-    } else {
-      console.error("No valid identifier found");}}}, [user]);
-
-// Loading Image is asta gif 
-  
-if (isLoading) {
+  if (isLoading) {
     return (
       <div className="loading-container">
         <img src="/asta.gif" alt="Loading..." />
       </div>
-    );
+    )
   }
- 
+
   return (
     <>
       <div className="header">
@@ -77,24 +66,16 @@ if (isLoading) {
       <div className="container">
         {user ? (
           <div className="user-info">
-            <h2>Welcome, {user?.given_name || user?.email}</h2> {/* Username */}
+            <h2>Welcome, {user?.given_name || user?.email}</h2>
             {user?.picture && (
-              <img src={user.picture} alt="Profile" width="100" height="100" className="profile-pic" />
+              <img src={user.picture} alt="Profile" width="100px" height="100px" className="profile-pic" />
             )}
+            <Second onLogout={Logout} onLogin={function (): void {}} />
           </div>
         ) : (
           <Second onLogin={Login} onLogout={Logout} />
         )}
-
-        {/* Show Ranger Image if available */}
-        {rangerImage && <img src={rangerImage} alt="Ranger" />}
-
-{/*         <Footer /> */}
       </div>
-
-      {user && (
-        <Second onLogin={Login} onLogout={Logout} />
-      )}
 
       {!isAuthenticated && (
         <div className="content">
@@ -118,7 +99,21 @@ if (isLoading) {
           </div>
         </div>
       )}
+
+      <div>
+        {ranger && isAuthenticated && !isLoading && (
+          <div>
+            <img
+              src={ranger.rangerImageUrl}
+              alt={`Ranger from ${ranger.rangerClass}`}
+              style={{ width: "500px", height: "500px" }}
+            />
+            <p>Your Class - {ranger.rangerClass}</p>
+          </div>
+        )}
+      </div>
     </>
-  )}
+  )
+}
 
 export default First
