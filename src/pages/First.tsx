@@ -2,7 +2,7 @@ import './First.css'
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react"
 import { useEffect, useState } from "react"
 import { Second } from './Second'
-import FaceIcon from '@mui/icons-material/Face'
+// import FaceIcon from '@mui/icons-material/Face'
 import React from 'react'
 
 function First() {
@@ -41,9 +41,16 @@ function First() {
     async function fetchRanger() {
       if (user) {
         const userName = user?.given_name || user?.email // Identifier
-        const response = await fetch(`https://redranger.up.railway.app/assign-ranger?userIdentifier=${userName}`)
-        const data = await response.json()
-        setRanger(data)
+        try {
+          const response = await fetch(`https://redranger.up.railway.app/assign-ranger?userIdentifier=${userName}`)
+          if (!response.ok) {
+            throw new Error("Failed to fetch ranger data")
+          }
+          const data = await response.json()
+          setRanger(data)
+        } catch (error) {
+          console.error("Error fetching ranger data:", error)
+        }
       }
     }
     if (user) fetchRanger()
@@ -59,9 +66,9 @@ function First() {
 
   return (
     <>
-      <div className="header">
+         {/* <div className="header">
         <FaceIcon className="face-icon" onClick={profile} />
-      </div>
+      </div> */}
 
       <div className="container">
         {user ? (
@@ -70,7 +77,9 @@ function First() {
             {user?.picture && (
               <img src={user.picture} alt="Profile" width="100px" height="100px" className="profile-pic" />
             )}
-            <Second onLogout={Logout} onLogin={function (): void {}} />
+            <Second onLogout={Logout} onLogin={function (): void {
+              throw new Error('Function not implemented.')
+            } } />
           </div>
         ) : (
           <Second onLogin={Login} onLogout={Logout} />

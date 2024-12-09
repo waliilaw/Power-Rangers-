@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import First from './pages/First';
 
 import './App.css'
+import React from 'react';
 
 function App() {
   return (
