@@ -2,7 +2,6 @@ import './First.css'
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react"
 import { useEffect, useState } from "react"
 import { Second } from './Second'
-// import FaceIcon from '@mui/icons-material/Face'
 import React from 'react'
 
 function First() {
@@ -31,10 +30,6 @@ function First() {
     } finally {
       setIsLoading(false)
     }
-  }
-
-  function profile() {
-    alert("Login first")
   }
 
   useEffect(() => {
@@ -66,20 +61,16 @@ function First() {
 
   return (
     <>
-         {/* <div className="header">
-        <FaceIcon className="face-icon" onClick={profile} />
-      </div> */}
-
       <div className="container">
         {user ? (
           <div className="user-info">
-            <h2>Welcome, {user?.given_name || user?.email}</h2>
+            <h2>Welcome, {user?.given_name && user?.email}</h2>
             {user?.picture && (
               <img src={user.picture} alt="Profile" width="100px" height="100px" className="profile-pic" />
             )}
             <Second onLogout={Logout} onLogin={function (): void {
               throw new Error('Function not implemented.')
-            } } />
+            }} />
           </div>
         ) : (
           <Second onLogin={Login} onLogout={Logout} />
@@ -110,14 +101,20 @@ function First() {
       )}
 
       <div>
-        {ranger && isAuthenticated && !isLoading && (
+        {ranger && (
           <div>
             <img
-              src={ranger.rangerImageUrl}
+              src={ranger.rangerImageUrl || '/default-ranger-image.png'}
               alt={`Ranger from ${ranger.rangerClass}`}
               style={{ width: "500px", height: "500px" }}
             />
             <p>Your Class - {ranger.rangerClass}</p>
+          </div>
+        )}
+
+        {isAuthenticated && !isLoading && !ranger && (
+          <div>
+            <p>Fetching your ranger...</p>
           </div>
         )}
       </div>
