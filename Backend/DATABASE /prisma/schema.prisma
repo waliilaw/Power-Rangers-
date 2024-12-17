@@ -1,0 +1,39 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")  // Set this in your .env file
+}
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String    @unique @default("default_name")  // Default value for existing rows
+  username     String    @unique
+  imageUrl     String
+  rangerClass  String?
+  rangerImage  String?
+  votes        Vote[]    @relation("VotesGiven")
+  votesReceived Vote[]   @relation("VotesReceived")
+  leaderboard  Leaderboard?
+}
+
+model Vote {
+  id           Int      @id @default(autoincrement())
+  voterId      Int
+  votedUserId  Int
+  createdAt    DateTime @default(now())
+
+  voter        User     @relation("VotesGiven", fields: [voterId], references: [id])
+  votedUser    User     @relation("VotesReceived", fields: [votedUserId], references: [id])
+
+  @@unique([voterId, votedUserId]) // Ensures a user can only vote once for a particular user
+}
+
+model Leaderboard {
+  userId       Int    @id
+  votesReceived Int    @default(0)
+
+  user         User   @relation(fields: [userId], references: [id])
+}
