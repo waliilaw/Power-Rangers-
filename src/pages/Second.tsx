@@ -1,4 +1,4 @@
-import React from "react"
+
 import { useKindeAuth } from "@kinde-oss/kinde-auth-react"
 
 interface SecondProps {
@@ -9,7 +9,7 @@ interface SecondProps {
 export function Second({ onLogin, onLogout }: SecondProps): JSX.Element {
   const { isAuthenticated } = useKindeAuth()
 
-  return ( 
+  return (
     <div className="button-container flex flex-col items-center space-y-4">
       {isAuthenticated ? (
         <div>

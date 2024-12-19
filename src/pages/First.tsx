@@ -64,7 +64,7 @@ function First() {
       <div className="container">
         {user ? (
           <div className="user-info">
-            <h2>Welcome, {user?.given_name} <br></br>Your Email - "{user?.email}"</h2>
+            <h2>Welcome, {user?.given_name && user?.email}</h2>
             {user?.picture && (
               <img src={user.picture} alt="Profile" width="100px" height="100px" className="profile-pic" />
             )}

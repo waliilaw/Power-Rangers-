@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import "./Three.css"; // Import your CSS file
-import React from "react";
 
 function Three () {
   useEffect(() => {
