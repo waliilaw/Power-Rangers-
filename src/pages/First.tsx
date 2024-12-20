@@ -54,7 +54,7 @@ function First() {
   if (isLoading) {
     return (
       <div className="loading-container">
-        <img src="/asta.gif" alt="Loading..." />
+        <img src="/asta.gif" alt="...Loading..." />
       </div>
     )
   }
