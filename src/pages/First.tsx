@@ -31,11 +31,11 @@ function First() {
       setIsLoading(false)
     }
   }
-
+// Gets user info 
   useEffect(() => {
     async function fetchRanger() {
       if (user) {
-        const userName = user?.given_name || user?.email // Identifier
+        const userName = user?.given_name || user?.email
         try {
           const response = await fetch(`https://redranger.up.railway.app/assign-ranger?userIdentifier=${userName}`)
           if (!response.ok) {
