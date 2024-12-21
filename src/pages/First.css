@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@100&display=swap");
 
-/* General Reset and Responsive Typography */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -9,7 +9,7 @@ body, html {
   background-color: #000;
   color: #fff;
   font-family: 'Poppins', sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden; 
   display: flex;
   justify-content: center;
   align-items: center;
