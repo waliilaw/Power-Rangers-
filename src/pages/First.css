@@ -54,8 +54,8 @@ body, html {
 
 /* Hover effect for dark red shadow */
 .login-btn:hover {
-  box-shadow: 0 0 20px rgba(139, 0, 0, 0.8); \
-  transform: scale(1.05); /* Slightly enlarges the button */
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.8); 
+  transform: scale(1.05);
 }
 
 /* Prevent focus outline */
