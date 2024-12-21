@@ -32,7 +32,7 @@ body, html {
 /* Button Container */
 .button-container {
   position: fixed;
-  bottom: 20px; /* Adjust for spacing from bottom */
+  bottom: 20px; 
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -40,11 +40,11 @@ body, html {
 
 /* Style for the login button */
 .login-btn {
-  background-color: #000000; /* Matte black */
-  color: #ffffff; /* White text */
+  background-color: #000000;
+  color: #ffffff;
   padding: 10px 20px;
   font-size: 10px;
-  font-weight: bold; /* Makes the font bold */
+  font-weight: bold;
   border: none;
   border-radius: 25%;
   cursor: pointer;
@@ -54,7 +54,7 @@ body, html {
 
 /* Hover effect for dark red shadow */
 .login-btn:hover {
-  box-shadow: 0 0 20px rgba(139, 0, 0, 0.8); /* Super dark red shadow */
+  box-shadow: 0 0 20px rgba(139, 0, 0, 0.8); \
   transform: scale(1.05); /* Slightly enlarges the button */
 }
 
