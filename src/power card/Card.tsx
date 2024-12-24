@@ -2,8 +2,8 @@ import React from "react";
 import "./card.css";
 
 type CardProps = {
-  color?: string; // Accept a primary color as a prop
-  children?: React.ReactNode; // For the card's content
+  color?: string; 
+  children?: React.ReactNode;
 };
 
 export function Card({ color = "#5ddcff", children }: CardProps) {
@@ -11,7 +11,7 @@ export function Card({ color = "#5ddcff", children }: CardProps) {
     <div
       className="card"
       style={{
-        "--primary-color": color, // Pass the color to a CSS variable
+        "--primary-color": color, 
       } as React.CSSProperties}
     >
       {children || "Magic Card"}
