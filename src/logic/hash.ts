@@ -1,3 +1,5 @@
+// hashing for rangers name
+
 export function hashUsername(username: string): number{
     let hash = 0;
     for (let i = 0; i < username.length; i++) {
