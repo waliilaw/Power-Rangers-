@@ -1,6 +1,8 @@
+// this is DATABASE to store users assigned ramnger and the leaderboard 
+
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")  // Set this in your .env file
+  url      = env("DATABASE_URL") 
 }
 generator client {
   provider = "prisma-client-js"
